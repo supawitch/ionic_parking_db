@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Parking List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <ion-list>
+    <button ion-item *ngFor="let p of parkings">
+        <ion-item>
+          <ion-thumbnail item-left slot="start">
+           <img [src]="p.photo" *ngIf="p.photo">
+          </ion-thumbnail>
+          <ion-label item-right>{{p.name}}</ion-label>
+        </ion-item>
+    </button>
+  </ion-list> 
+</ion-content>
