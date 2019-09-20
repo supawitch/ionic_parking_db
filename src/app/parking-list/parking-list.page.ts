@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IParking } from 'src/models/parking'; 
 import { NavController, NavParams } from '@ionic/angular';
 import { ParkingProviderService } from '../parking-provider.service';
+import { ParkingDetailPage } from '../parking-detail/parking-detail.page';
 
 
 @Component({
@@ -48,6 +49,22 @@ export class ParkingListPage  {
 
   ionViewWillEnter(){
     this.getParkingList();
+  }
+
+  doSearch(event){
+    let query = event.target.value ||"";
+    this.parkingProvider.searchParkingList(query).then(
+      (data:any) =>{
+      this.parkings = data.rows;
+    }, error =>{
+      console.error('Error get data!', error);
+    });
+  }
+
+  viewParkingDetail(parking: IParking){
+    console.log(parking.id);
+    let p = parking.id;
+    this.navCtrl.navigateForward(['/parking-detail', { p }]);
   }
 
 }

@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>parking-detail</ion-title>
+    <ion-title>{{parking.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-</ion-content>
+    <ion-list>
+      <ion-item class="ion-margin-vertical">
+        <ion-label>
+  
+          <ion-avatar item-left>
+            <img [src]="parking.shared_photo" *ngIf="parking.shared_photo">
+            <!-- <img src="../../assets/img/no-image.png" *ngIf="!parking.shared_photo"> -->
+          </ion-avatar><br>
+          
+           <h2> {{ parking.shared_by }} </h2>
+           <p> เมื่อ {{ parking.shared_date}} </p>
+      
+      <img [src]="parking.photo" *ngIf="parking.photo">
+      <img src="../../assets/img/no-image.png" *ngIf="!parking.photo">
+  
+      <ion-card-content>
+        <ion-card-title>
+          <p> {{ parking.name}} </p>
+          <span  *ngIf="parking.available"> ว่าง {{ parking.available}}  </span> >
+          <p ion-text color="danger" *ngIf="!parking.available"> เต็มแล้ว </p>
+        </ion-card-title> 
+        <ion-textarea> {{ parking.description }} </ion-textarea>
+      </ion-card-content>
+    
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  
+  </ion-content>
+  

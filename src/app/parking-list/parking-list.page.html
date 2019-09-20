@@ -1,18 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Parking List</ion-title>
+    <ion-searchbar (ionInput)="doSearch($event)" debounce="1000" placeholder="ค้นหา"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
    <ion-list>
-    <button ion-item *ngFor="let p of parkings">
-        <ion-item>
+     <ion-item *ngFor="let p of parkings" (click)="viewParkingDetail(p)">
+      <button ion-button block>
           <ion-thumbnail item-left slot="start">
            <img [src]="p.photo" *ngIf="p.photo">
+           <img src="../../assets/img/03.jpg" *ngIf="!p.photo">
           </ion-thumbnail>
-          <ion-label item-right>{{p.name}}</ion-label>
-        </ion-item>
-    </button>
+          <h3>{{p.name}}</h3>
+          <p>{{p.distance}}km</p>
+          <p>ว่าง{{p.availble}}</p>
+          <p *ngIf="!p.availble">เต็มแล้ว</p>
+          <p></p>
+      </button>
+    </ion-item>
   </ion-list> 
 </ion-content>
