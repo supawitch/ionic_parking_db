@@ -5,7 +5,7 @@ const routes: Routes = [
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   // { path: 'parking-list', loadChildren: './parking-list/parking-list.module#ParkingListPageModule' },
-  // { path: 'parking-add', loadChildren: './parking-add/parking-add.module#ParkingAddPageModule' },
+  { path: 'parking-add', loadChildren: './parking-add/parking-add.module#ParkingAddPageModule' },
   { path: 'parking-detail', loadChildren: './parking-detail/parking-detail.module#ParkingDetailPageModule' },
   // { path: 'map', loadChildren: './map/map.module#MapPageModule' },
   // { path: 'gps', loadChildren: './gps/gps.module#GpsPageModule' },

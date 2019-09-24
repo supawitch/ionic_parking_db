@@ -26,7 +26,7 @@ export class ParkingDetailPage implements OnInit {
     let query = 3;
     this.ParkingProvider.getParkingID(this.q).then((data:any) => {
       this.parking = data.rows;
-     // console.error('name', this.parking.name);
+      //console.error('name', this.parking[0].name);
     }, error =>{
       console.error('Error get data!', error);
     });

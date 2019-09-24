@@ -66,5 +66,8 @@ export class ParkingListPage  {
     let p = parking.id;
     this.navCtrl.navigateForward(['/parking-detail', { p }]);
   }
+  addParking(){
+    this.navCtrl.navigateForward('/parking-add');
+  }
 
 }
